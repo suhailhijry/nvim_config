@@ -9,3 +9,6 @@ require("trouble").setup {
         information = 'I',
     },
 }
+
+vim.keymap.set('n', '<leader>t', ':Trouble<cr>')
+

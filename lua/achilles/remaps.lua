@@ -23,6 +23,3 @@ vim.keymap.set('n', 'N', 'nzzzv')
 vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('n', 'Q', '<nop>')
 
-vim.keymap.set('n', '<leader>t', ':Trouble<cr>')
-
-
