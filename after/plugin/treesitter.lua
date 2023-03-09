@@ -1,4 +1,9 @@
 local ts = require('nvim-treesitter.configs')
+local tsi = require('nvim-treesitter.install')
+tsi.prefer_git = false
+tsi.auto_install = false
+tsi.sync_install = false
+tsi.compilers = { "clang" }
 
 ts.setup {
     ensure_installed = {
@@ -32,11 +37,10 @@ ts.setup {
         'regex',
         'rust',
         'sql',
-        'typescript',
         'zig',
     },
     sync_install = false,
-    auto_install = true,
+    auto_install = false,
 
     highlight = {
         enable = true,
