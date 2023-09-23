@@ -1,14 +1,16 @@
 local lsp = require 'lsp-zero'
+local cmp = require 'cmp'
 
 lsp.preset('recommended')
 
-local cmp = require 'cmp'
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-space>'] = cmp.mapping.complete(),
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-cr>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+    })
 })
 
 lsp.on_attach(function(_, bufnr)
@@ -24,9 +26,12 @@ lsp.set_preferences({
     sign_icons = { }
 })
 
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
+-- lsp.setup()
 
-lsp.setup()
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    handlers = {
+        lsp.default_setup,
+    }
+})
 

@@ -7,7 +7,6 @@ tsi.compilers = { "clang" }
 
 ts.setup {
     ensure_installed = {
-        'help',
         'c',
         'cpp',
         'c_sharp',
@@ -39,6 +38,7 @@ ts.setup {
         'sql',
         'zig',
     },
+
     sync_install = false,
     auto_install = false,
 

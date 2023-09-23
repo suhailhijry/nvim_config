@@ -1,4 +1,4 @@
 require 'achilles.set'
 require 'achilles.remaps'
-require 'achilles.packer'
+require 'achilles.lazy'
 
